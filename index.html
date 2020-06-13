@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="jsstyle.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS</title>
+</head>
+
+<body>
+    <div class="top-bar">   
+
+        <div class="text-id">
+            Idiomas
+        </div>
+
+        <select id="lang" name="disp-lang" onchange="addSquare()">
+            <option value="Seleccionar" disabled selected style="display:none;">Seleccionar</option>
+            <option value="Inglés">Inglés</option>
+            <option value="Francés">Francés</option>
+            <option value="Español">Español</option>
+        </select>
+
+        <button class="but-aceptar" type="button" onclick="aceptar()">
+            Aceptar
+        </button>
+
+        <div class="weather"></div>
+    </div>
+   
+    <div id="mid" class="mid">
+        
+    </div>
+
+    <div id="mid-res" class="mid-res">
+
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+</html>

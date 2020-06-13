@@ -54,3 +54,8 @@ body{
 .mid-res{
     font-size: 22px;
 }
+
+.weather{
+    margin-left: 10px;
+    font-size: 20px;
+}

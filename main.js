@@ -98,13 +98,15 @@ function getWeather(){
           // code block
 
       }*/
+    async function we(){
+        let response = await fetch('https://api.openweathermap.org/data/2.5/weather?id=2643743&appid=9bdedc0dd764e4bbf3e0e871ea6df339')
+        let weather = await response.json()
+        return weather
+    }
 
-    fetch('https://api.openweathermap.org/data/2.5/weather?id=2643743&appid=9bdedc0dd764e4bbf3e0e871ea6df339')
-        .then(response => {
-            return response.json();
-        })
-        .then((weather) => {
-            console.log(weather)
-        })
-        
+    we().then(weather => {
+        console.log(weather)
+        document.getElementById("weather").innerHTML = weather.weather[0].main
+    })    
+  
 }

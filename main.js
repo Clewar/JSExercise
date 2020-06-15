@@ -83,63 +83,37 @@ function aceptar(){
 
 function getWeather(){
 
+    async function we(id){
+        let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=${id}&appid=9bdedc0dd764e4bbf3e0e871ea6df339`)
+        let weather = await response.json()
+        return weather
+    }
+
     switch(selectedLangs[0]) {
         case "Inglés":
-            //we(2643743)
-            async function weLondon(){
-                let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=2643743&appid=9bdedc0dd764e4bbf3e0e871ea6df339`)
-                let weather = await response.json()
-                return weather
-            }
-        
-            weLondon().then(weather => {
+            we(2643743).then(weather => {
                 console.log(weather.main.temp)
                 document.getElementById("weather").innerHTML = `Weather at London: 
                 ${weather.weather[0].description} at ${parseInt(weather.main.temp-273.15,10)}C°`
             })
           break;
         case "Francés":
-            //we(2968815)
-            async function weParis(){
-                let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=2968815&appid=9bdedc0dd764e4bbf3e0e871ea6df339`)
-                let weather = await response.json()
-                return weather
-            }
-        
-            weParis().then(weather => {
+            we(2968815).then(weather => {
                 console.log(weather.main.temp)
                 document.getElementById("weather").innerHTML = `Weather at Paris: 
                 ${weather.weather[0].description} at ${parseInt(weather.main.temp-273.15,10)}C°`
             })
           break;
-        case "Español":
-            //we(3117735)
-            async function weMadrid(){
-                let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=3117735&appid=9bdedc0dd764e4bbf3e0e871ea6df339`)
-                let weather = await response.json()
-                return weather
-            }
-        
-            weMadrid().then(weather => {
+        case "Español":        
+            we(3117735).then(weather => {
                 console.log(weather.main.temp)
                 document.getElementById("weather").innerHTML = `Weather at Madrid: 
                 ${weather.weather[0].description} at ${parseInt(weather.main.temp-273.15,10)}C°`
             })
             break;
         default:
+            
       }
 
-    /*async function we(id){
-        let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=${id}&appid=9bdedc0dd764e4bbf3e0e871ea6df339`)
-        let weather = await response.json()
-        return weather
-    }
-
-    we().then(weather => {
-        console.log(weather.main.temp)
-        document.getElementById("weather").innerHTML = `Weather at London: 
-        ${weather.weather[0].description} at ${parseInt(weather.main.temp-273.15,10)}C°`
-    })*/    
-  
 }
 
